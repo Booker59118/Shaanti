@@ -1,0 +1,128 @@
+
+
+
+/* ===============================================Nav=================================================================================== */
+
+.bg-custom-primary {
+   margin-top: 0 !;
+    height: 15%; 
+    width: 100%;
+    background-color: #f5e6e6;
+    /* border: 1px solid black; */
+    
+}
+
+
+
+
+/* ========================Brand====================================== */
+.navbar{
+    max-width: 100% !important;
+}
+.navbar-brand{
+    transform: translate(1vw, -1vw);
+    font-family: Italiana ;
+    /* position: fixed; */
+    
+}
+
+.navbar-brand p{
+    color: #9c1bec;
+    margin-bottom:-2rem;
+    padding-left: 15px;
+}
+
+.navbar-brand .text-brand{
+    transform: translate(0vw, 0.3vw);
+}
+
+.brand{
+    
+    font-size: 40px;
+}
+/* ======================================liste des liens==========================================*/
+#navbarColor01 ul {
+  transform: translate(4vw, -1vw);
+
+   
+}
+
+.nav-item {
+    padding-left:60px;
+    margin-bottom: -20px;
+}
+
+#navbarColor01 ul li a{
+    color: #9c1bec;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    
+}
+/* =================================icons===================================================== */
+.nav-icon{
+transform: translate(-5vw, 0vw);
+display: flex;
+
+}
+.nav-icon a{
+    color: #9c1bec;
+    padding-right: 5px;
+    
+    flex-direction: row;
+   
+    text-decoration: none;
+     /* flex-direction: row;  */
+   
+}
+
+.nav-item{
+
+    font-size:15px;
+}
+
+.bx-md{
+     display: flex;
+     /* flex-direction: row; */
+    
+     
+} 
+
+.user-text{
+    font-size:15px;
+    padding-top: 12px;
+    padding-left: 10px;
+}
+
+.basket-text{
+    font-size:15px;
+    padding-top: 12px;
+    padding-left: 10px;
+}
+
+
+
+
+/* =================================bouton search======================================== */
+.btn-custom-secondary  {
+    background-color: #9c1bec;
+}
+
+.navbar-search{
+    margin-left: 15px;
+    transform: translate(1vw, 1vw);
+}
+
+
+
+.navbar-toggler{
+    background-color: #9c1bec;
+}
+
+
+/* ==================================================================================================================================== */
+
+.carousel .carousel-item img {
+    max-height: 90vh;
+}
+

@@ -3,54 +3,62 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <!-- MDB icon -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'> 
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        
+         
+        <!--Feuilles de styles-->
         <link rel="stylesheet" href="https://bootswatch.com/5/minty/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/base.css">
+        <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/navbar1.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/navbar2.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/promo.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/slider.css')}}">
+
+        <link rel="stylesheet" href="{{asset('assets/css/mdb.min.css')}}" />
         
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         
         {% block stylesheets %}
-           
+           <!-- MDB -->
+        
         {% endblock %}
-
+            <!--Fichiers JS-->
         {% block javascripts %}
-            
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
         {% endblock %}
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-custom-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Shaanti</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarColor02">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fa-brands fa-square-facebook"></i>
-                           
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                        </li>
-                       
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <h1>AU boulot</h1>
+        <header>
+         {% block header %}
+
+            {% include 'incs/navbar1.html.twig'%}
+            {% include 'incs/navbar2.html.twig'%}
+
+
+         {% endblock %}
+        
+        
+        </header>
+        
+     
         {% block body %}{% endblock %}
+
+        <footer>
+        {% block footer %}
+        
+        {% include 'incs/footer.html.twig'%}
+        
+        {% endblock %}
+        
+        
+        </footer>
+
+        <!-- MDB -->
+  <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
     </body>
 </html>

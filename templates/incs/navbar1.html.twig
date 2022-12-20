@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-custom-dark bg-custom-primary">
+            
+                
+            <div class="container-fluid">
+            
+                <a class="navbar-brand" href="{{path('app_home')}}">
+                    <img src="" alt="">
+                    <p class="brand">Shaanti </p>
+                    <p class="text-brand"> Le bien-être à portée d'un clic</p>
+                </a>
+            
+            
+            
+            
+
+                          
+
+                    <ul class="nav-icon ">
+                        {% if app.user %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class='bx bxs-user bx-md'></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{path('app_logout')}}"><i class="">Déconnexion</i></a>
+                            </li>
+                        {% else %} 
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{path('app_login')}}"><i class="">Connexion</i></a>
+                            </li>
+
+                              <li class="nav-item">
+                                <a class="nav-link" href="{{path('app_register')}}"><i class="">M'inscrire</i></a>
+                            </li>
+                           {% endif %} 
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class='bx bxs-basket bx-md '></i></a>
+                            </li>
+                        </ul>
+
+                    {# <div class="navbar-search">
+                        {# <form class="d-flex">
+
+                            <input class="form-control me-sm-2" type="text" placeholder="Rechercher">
+                            <button class="btn btn-custom-secondary my-2 my-sm-0" type="submit">Search</button>
+
+                        </form> 
+                    </div> #}
+                        
+                    
+                </div>
+            </div>
+        </nav>
