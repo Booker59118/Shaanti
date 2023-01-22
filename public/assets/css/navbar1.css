@@ -3,12 +3,15 @@
 
 /* ===============================================Nav=================================================================================== */
 
-.bg-custom-primary {
-   margin-top: 0 !;
-    height: 15%; 
+.navbar {
+   /* margin: 0 ; */
+   
+    height: 95%; 
     width: 100%;
-    background-color: #f5e6e6;
+    background-color: #fff;
+    display:flex;
     /* border: 1px solid black; */
+    font-size: 16px;
     
 }
 
@@ -16,11 +19,11 @@
 
 
 /* ========================Brand====================================== */
-.navbar{
-    max-width: 100% !important;
+.nav-brand img{
+    transform: translate(0vw, 1vw);
 }
 .navbar-brand{
-    transform: translate(1vw, -1vw);
+    transform: translate(2vw, -2vw);
     font-family: Italiana ;
     /* position: fixed; */
     
@@ -36,33 +39,45 @@
     transform: translate(0vw, 0.3vw);
 }
 
-.brand{
-    
-    font-size: 40px;
-}
+
 /* ======================================liste des liens==========================================*/
-#navbarColor01 ul {
-  transform: translate(4vw, -1vw);
 
-   
-}
 
-.nav-item {
-    padding-left:60px;
-    margin-bottom: -20px;
-}
 
-#navbarColor01 ul li a{
+
+
+
+.navbar-nav  a{
+    font-size:20px;
     color: #9c1bec;
-    padding-left: 15px;
-    font-size: 15px;
-    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+}
+/***************************************************Menu*********************************************************************************/
+/* .dropdown-menu{
+    width: 100%;
+    margin-left: 15px;
+    padding: 15px;
+    line-height:35px;
+    border: 3px solid black;
     
 }
+
+.dropdown-menu a {
+    margin-left: 10%;
+    font-size: 16px;
+    color:#9c1bec;
+} */
+
+
+
 /* =================================icons===================================================== */
 .nav-icon{
 transform: translate(-5vw, 0vw);
 display: flex;
+
 
 }
 .nav-icon a{
@@ -76,9 +91,9 @@ display: flex;
    
 }
 
-.nav-item{
-
-    font-size:15px;
+.nav-item {
+    
+    font-size:20px;
 }
 
 .bx-md{
@@ -88,17 +103,7 @@ display: flex;
      
 } 
 
-.user-text{
-    font-size:15px;
-    padding-top: 12px;
-    padding-left: 10px;
-}
 
-.basket-text{
-    font-size:15px;
-    padding-top: 12px;
-    padding-left: 10px;
-}
 
 
 

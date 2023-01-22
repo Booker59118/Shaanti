@@ -1,8 +1,10 @@
 .carousel-item img{
     align-items: center;
+    margin-top: 0px;
    
 }
 
 .carousel{
-    margin-top:15vh;
-}
+  z-index: -1;
+  margin-top: 0px;
+} 

@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block body %}
+
+<main class="container emp-profile">
+    <form method="post">
+        <div class="row">
+                    
+            <div class="col-12">
+                
+                <h1>
+                    Profil de {{app.user.firstname}}  {{app.user.lastname}}
+                </h1>
+            </div>                       
+                            
+                
+            
+                    
+                
+               
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Nom</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{app.user.firstname}}</p>
+                                        </div>
+                                    </div>
+                                        <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Prénom</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{app.user.lastname}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ app.user.email }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Adresse</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ app.user.adress }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Code Postal</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{ app.user.zipcode }}</p>
+                                        </div>
+                                    </div>
+                            </div>
+                           
+                        </div>
+                    
+        </div>
+    </form>           
+</main>
+{% endblock %}

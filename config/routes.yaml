@@ -1,3 +1,20 @@
 controllers:
     resource: ../src/Controller/
-    type: attribute
+    type: annotation
+
+# details:
+#     path: /{slug}
+#     controller: App\Controller\ProductsController::show
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+
+# edit:
+#     path: /edition/{id}
+#     controller: App\Controller\Admin\ProductsController::edit
+
+
+# delete:
+#     path: /suppression/{id}
+#     controller: App\Controller\Admin\ProductsController::delete   

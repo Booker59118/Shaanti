@@ -1,41 +1,90 @@
-<nav class="navbar navbar-expand-lg navbar-custom-dark bg-custom-primary">
+<nav class="navbar navbar-expand-lg navbar-custom-dark bg-custom-primary mb-7">
             
                 
-            <div class="container-fluid">
+    <div class="container-fluid">
+        <div class="nav-brand"  >
+            <a class="navbar-brand" href="{{path('app_home')}}">
+                <img src="assets/images/logo 2.png" alt="" width="15%" style="">
+                <div class="brand_name d-flex flex-column mb-3">
+                    <p class="brand-title " style="font-size:50px;">Shaanti</p>
+                    <p class="text-brand"> Le bien-être à portée de main</p>
+                </div>
+            </a>   
+        </div>        
+                        
+       
+        <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                
+                <a class="nav-item nav-link " href="{{path('app_home')}}">Accueil</a>
+                <a class="nav-item nav-link" href="{{path('products_index')}}">Produits</a>
+                <a class="nav-item nav-link " href="#">À propos</a>
+            </div>
+        </div>           
+                            
+    </div>                    
+                    
+    <div class="nav-icon ">
+        {% if app.user %}
             
-                <a class="navbar-brand" href="{{path('app_home')}}">
-                    <img src="" alt="">
-                    <p class="brand">Shaanti </p>
-                    <p class="text-brand"> Le bien-être à portée d'un clic</p>
-                </a>
+            <a class="nav-item nav-link" href="{{path('profile_index')}}">
+                <i class='bx bxs-user bx-md'>
+                    mon compte
+                </i>
+            </a>
+           
+            
+            <a class="nav-item nav-link" href="{{path('app_logout')}}">
+                Déconnexion
+            </a>           
+                        
+        {% else %}         
+                
+           
             
             
-            
-            
+            <a class="nav-item nav-link" href="{{path('app_login')}}">
+                Connexion 
+            </a>        
+                    
+                
+           
 
+           
+            <a class="nav-item nav-link" href="{{path('app_register')}}">
+                <i class="">
+                    M'inscrire
+                </i>
+            </a>
+            
+        {% endif %} 
+
+
+                        
+            
+            <a class="nav-item nav-link" href="{{path('cart_show')}}">
+                <i class='bx bxs-basket'>
+                        
+                </i>
+            </a>
+            
+    </div>           
+
+                
+                    
+                       
+
+               
+                    
                           
-
-                    <ul class="nav-icon ">
-                        {% if app.user %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class='bx bxs-user bx-md'></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{path('app_logout')}}"><i class="">Déconnexion</i></a>
-                            </li>
-                        {% else %} 
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{path('app_login')}}"><i class="">Connexion</i></a>
-                            </li>
-
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{path('app_register')}}"><i class="">M'inscrire</i></a>
-                            </li>
-                           {% endif %} 
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class='bx bxs-basket bx-md '></i></a>
-                            </li>
-                        </ul>
+                        
+               
+                
+               
+              
+                        
+                        
+    
 
                     {# <div class="navbar-search">
                         {# <form class="d-flex">
@@ -47,6 +96,23 @@
                     </div> #}
                         
                     
-                </div>
-            </div>
-        </nav>
+                
+    
+</nav>
+
+
+                        
+                
+              
+                
+            
+                    
+                    
+                   
+                
+            
+            
+            
+
+                          
+

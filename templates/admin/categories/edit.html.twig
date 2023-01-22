@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Modification d'une {{ category.name}}{% endblock %}
+
+{% block body %} 
+    <main class="container">
+        <section class="row">
+            <div class="col-12">
+            <h1>Modifier la catégorie {{ category.name}}</h1>
+            {{form_start(categoryForm)}}
+            {{form_row(categoryForm.name)}}
+            <button type="submit" class="btn ">
+	        {{button_label|default('Ajouter')}}
+            </button>
+            {{form_end(categoryForm)}}
+
+            </div>
+        </section>
+    </main>
+{% endblock %}
