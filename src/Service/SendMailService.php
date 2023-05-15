@@ -7,7 +7,7 @@ use Symfony\Component\Mailer\MailerInterface;
 
 class SendMailService
 {
-    private $mailer;
+    protected $mailer;
 
     public function __construct(MailerInterface $mailer){
 

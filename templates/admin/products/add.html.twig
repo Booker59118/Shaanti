@@ -3,14 +3,16 @@
 {% block title %}Administration des produits{% endblock %}
 
 {% block body %}
-    <main class="container">
+    <main class="container ">
         <section class="row">
-            <div class="col-12">
+            <div class="col-12" style="margin-top:10%">
                 <h1> Ajouter un produit</h1>
                 {% include "admin/products/_form.html.twig" %}
-                <a class="btn  btn-secondary" href="{{path('admin_productsindex')}}">Retour</a>
+                <a class="btn  btn-secondary mt-3" href="{{path('products_index')}}">Retour</a>
             </div>
+            
         </section>
+        
     </main>   
     
     

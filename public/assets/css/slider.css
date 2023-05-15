@@ -1,10 +1,13 @@
 .carousel-item img{
     align-items: center;
-    margin-top: 0px;
+    margin-top: 50px;
+    width: 70%;
+    height: 700px;
+   
    
 }
 
-.carousel{
+/* .carousel{
   z-index: -1;
-  margin-top: 0px;
-} 
+
+}  */

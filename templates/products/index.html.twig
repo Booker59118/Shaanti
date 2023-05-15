@@ -3,14 +3,24 @@
 {% block title %}Liste des produits!{% endblock %}
 
 {% block body %}
-    <div class="container col-12 my-4">
+<section class="row col-12 " style="margin-top:10%;">
 
-        <h1 class="display-4 bg-dark text-white text-center rounded shadow-lg">Articles</h1>
+  
+        <ol class="breadcrumb  ps-3 py-3 fs-5 ms-5 " >
+            <li class="breadcrumb-item " ><a href="{{path('app_home')}}">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Produits</li>
+        </ol>       
+         
+    
+    <div class="col-12">
+
+       
+        <h1 class="display-4 bg-dark mx-5  text-white text-center rounded shadow-lg" >Articles</h1>
         {% if  is_granted('ROLE_ADMIN') %}
-            <a class="btn col-3 me-1 btn-success" href="{{path('admin_productsadd')}}">Ajout d'un produit</a>
+            <a class="btn mx-5 p-3  btn-success" href="{{path('admin_productsadd')}}">Ajout d'un produit</a>
         {% endif %}
 
-        <div class="row mt-4 justify-content-center">
+        <div class="row col-10 mx-auto  mt-4 justify-content-center">
 
             {% for product in products %}
                 <div class="card bg-light  mb-5 col-md-4 col-sm-5 col-xs-10 text-black fw-bolder" style="max-width: 20rem;">
@@ -23,14 +33,14 @@
                     <div class=" ">
                         <img src="{{ asset('assets/upload/fichier/') ~ product.image }}" class="d-block w-100" alt="{{ product.name }}">
                     </div>
-                        <small class="text-black">Prix :{{product.price }} €</small>
+                        <small class="text-black">Prix :  {{product.price }} €</small>
                     </div>
                     <div class="row justify-content-center">
                         <a class="btn col-10 m-2 text-info"></a>
                     </div>
                     <div class="row justify-content-center">
                         <a class="btn col-4 m-2 btn-secondary" href="{{path('products_app_show', {'id': product.id})}} )}}">Voir</a>
-                        <a href="" class="btn col-4 m-2 btn-success">Ajouter </a>
+                        {# <a href="{{path('cart_add', {'id': product.id})}}" class="btn col-4 m-2 btn-success">Ajouter </a> #}
                     {% if  is_granted('ROLE_ADMIN') %}  
                         <a class="btn col-4 m-2 btn-success" href="{{path('admin_productsedit', {'id': product.id})}}">Editer</a>
                     {% endif %}
@@ -41,5 +51,6 @@
         </div>
 
     </div>
-
+    
+</section>
 {% endblock %}

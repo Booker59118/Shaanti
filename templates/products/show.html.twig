@@ -1,36 +1,86 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Détails de
-    {{ product.name }}
+{% block title %}
+	Détails de
+	{{ product.name }}
 {% endblock %}
 
 {% block body %}
-    
-    <main class="container">
-        <section class="row">
-            <div class="col-12">
-                <h1>{{ product.name }}</h1>
-            </div>
-            <div class="col-6">
-                
-                <div class=" ">
-                    <img src="{{ asset('assets/upload/fichier/') ~ product.image }}" class="d-block w-100" alt="{{ product.name }}">
-                </div>
-                       
-                   
-                
-            </div>
-            <div class="col-6">
-                <p>{{ product.description }}</p>
-                <p>Catégorie : {{ product.categories.name }}</p>
-                <p>Prix : {{ product.price  }} €</p>
-                {% if product.stock > 0 %}
-                    <a href="{{path('cart_add', {'id': product.id})}}" class="btn btn-success">Ajouter au panier</a>
-                {% else %}
-                    <p class="text-danger">Temporairement en rupture de stock</p>
-                {% endif %}
-                <a class="btn  btn-secondary" href="{{path('products_index')}}">Retour</a>
-            </div>
-        </section>
-    </main>
+
+
+	<main class="container">
+
+		<section class="row" style="margin-top:15%;">
+
+
+			<ol class="breadcrumb  ps-3 py-3 fs-5 ">
+				<li class="breadcrumb-item ">
+					<a href="{{path('app_home')}}">
+						Accueil
+					</a>
+				</li>
+				<li class="breadcrumb-item ">
+					<a href="{{path('products_index')}}">
+						Produits
+					</a>
+				</li>
+				<li class="breadcrumb-item active">
+					{{product.name}}
+				</li>
+			</ol>
+
+
+			{# <div class="col-12">
+			                <h1>{{ product.name }}</h1>
+			            </div> #}
+			<div class="col-6">
+
+				<div class="product-image">
+					<img src="{{ asset('assets/upload/fichier/') ~ product.image }}" class="d-block w-100" alt="{{ product.name }}">
+				</div>
+			</div>
+
+
+			<div class="col-6 fs-4 fw-bold lh-lg">
+
+
+				<h1 class="fs-title fs-1" style="color: #9c1bec;">
+					{{ product.name }}
+				</h1>
+
+				<p>
+					{{ product.description }}
+				</p>
+				<p>
+					Catégorie :
+					{{ product.categories.name }}
+				</p>
+
+				<p>
+					Prix :
+					{{ product.price  }}
+					€
+				</p>
+
+				{% if product.stock > 0 %}
+					{% if app.user %}
+						<a href="{{path('cart_add', {id: product.id})}}" class="btn btn-success">
+							Ajouter au panier
+						</a>
+					{% else %}
+						<a href="{{path('app_login')}}" class="btn btn-success">
+							Ajouter au panier
+						</a>
+					{% endif %}
+				{% else %}
+					<p class="text-danger">
+						Temporairement en rupture de stock
+					</p>
+				{% endif %}
+				<a class="btn  btn-secondary" href="{{path('products_index')}}">
+					Retour
+				</a>
+			</div>
+		</section>
+	</main>
 {% endblock %}

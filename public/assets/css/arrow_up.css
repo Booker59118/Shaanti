@@ -1,0 +1,20 @@
+.btn-icone{
+    height: 50px;
+    width: 50px;
+    background: #9c1bec;
+    border-radius: 50%;
+    display: flex;
+    justify-content:center;
+    position:fixed;
+    right:50px;
+    bottom:20px;
+    cursor: pointer;
+
+}
+
+#icone{
+   display: table-cell;
+    color: #ffff;
+    text-align: center;
+    vertical-align: middle;
+}

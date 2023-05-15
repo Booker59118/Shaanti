@@ -16,6 +16,8 @@ class Products
 {
     use CreatedAtTrait;
 
+   
+
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -42,14 +44,15 @@ class Products
 
 
 
-    #[ORM\OneToMany(mappedBy: 'products', targetEntity: OrdersDetails::class)]
-    private Collection $ordersDetails;
+    
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Image = null;
+
+  
 
     public function __construct()
     {
@@ -128,37 +131,6 @@ class Products
 
 
 
-    /**
-     * @return Collection<int, OrdersDetails>
-     */
-    public function getOrdersDetails(): Collection
-    {
-        return $this->ordersDetails;
-    }
-
-    public function addOrdersDetail(OrdersDetails $ordersDetail): self
-    {
-        if (!$this->ordersDetails->contains($ordersDetail)) {
-            $this->ordersDetails->add($ordersDetail);
-            $ordersDetail->setProducts($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrdersDetail(OrdersDetails $ordersDetail): self
-    {
-        if ($this->ordersDetails->removeElement($ordersDetail)) {
-            // set the owning side to null (unless already changed)
-            if ($ordersDetail->getProducts() === $this) {
-                $ordersDetail->setProducts(null);
-            }
-        }
-
-        return $this;
-    }
-
-
 
     public function getSlug(): string
     {
@@ -183,4 +155,6 @@ class Products
 
         return $this;
     }
+
+ 
 }

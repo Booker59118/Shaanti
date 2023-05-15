@@ -15,14 +15,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 #[Route('/admin/produits', name: 'admin_products')]
+
 class ProductsController extends AbstractController
 {
+
+
     #[Route('/', name: 'index')]
-    public function index(ProductsRepository $productsRepository): Response
+    public function index(ProductsRepository $productsRepository, Request $request, PaginatorInterface $paginator): Response
     {
         $products = $productsRepository->findAll();
+
+        $pagination = $paginator->paginate($products);
         return $this->render('admin/products/index.html.twig',[
-            'products' => $products
+            'products' => $products,
+            'pagination' => $pagination
         ]);
     }
 
@@ -68,6 +74,8 @@ class ProductsController extends AbstractController
                 $product->setImage($newFilename);
             }
             $product->setSlug($slugger->slug($product->getName()));
+
+            // On se prépare à persister chaque nouveau produit sur la base de données
             $em->persist($product);
             $em->flush();
 
@@ -75,7 +83,7 @@ class ProductsController extends AbstractController
 
 
             //On redirige
-            return $this->redirectToRoute('admin_productsindex');
+            return $this->redirectToRoute('admin_productsadd');
         }
 
 
@@ -96,6 +104,7 @@ class ProductsController extends AbstractController
     public function edit(ProductsRepository $productsRepository, Request $request, EntityManagerInterface $em, SluggerInterface $slugger, $id): Response
     {
         $product = $productsRepository->find($id);
+        $id = $product->getId();
 
         // // on verifie si l'utilsateur peut éditer avec le Voter
         // $this->denyAccessUnlessGranted('PRODUCT_EDIT', $product);
@@ -115,7 +124,7 @@ class ProductsController extends AbstractController
             $product->setSlug($slug);
 
             //on arrondit le prix en le multipliant par 100
-            $prix = $product->getPrice() * 100;
+            $prix = $product->getPrice() ;
             $product->setPrice($prix);
 
             //On stocke
@@ -125,14 +134,18 @@ class ProductsController extends AbstractController
             $this->addFlash('success', 'Produit ajouté avec succès');
 
             //On redirige
-            return $this->redirectToRoute('admin_productsedit');
+            return $this->redirectToRoute('admin_productsedit',[
+                'id' => $product->getId(),
+            ]);
         }
 
 
 
         return $this->render('admin/products/edit.html.twig', [
             'productForm' => $productForm->createView(),
-            'product' => $product
+            'product' => $product,
+            'id' => $id
+            
         ]);
 
         // on peut utiliser une autre moyen plus simple pour creer le formulaire 

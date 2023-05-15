@@ -2,25 +2,47 @@
 
 namespace App\Controller;
 
+
+
 use App\Repository\ProductsRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 
 class CartController extends AbstractController
 {
     #[Route('/cart', name: 'cart_show')]
-    public function show()
+    public function show(ProductsRepository $productsRepository, SessionInterface $session)
     {
+        $cart = $session->get('cart', []);
+        
+        //on fabrique les données
+        $dataCart =[];
+        $total = 0;
 
+        // foreach($session->get('cart', []) as $id => $qty){$
+            foreach($cart as $id => $qty){
+            $product = $productsRepository->find($id);
+            if(!$product){
+                continue;
+               }
+
+            $dataCart[] =[
+                'product' =>$product,
+                'qty'=>$qty
+            ];
+           
+            $total += ($product->getPrice() * $qty);
+        }
     
-
-      
-
         return $this->render('cart/show.html.twig', [
-        'controller_name' => 'CartController']);
+            'controller_name' => 'CartController',
+            'items' => $dataCart,
+            'total' => $total
+        ]);
            
     }
 
@@ -28,50 +50,102 @@ class CartController extends AbstractController
 
 
      #[Route('/cart/add/{id}', name: 'cart_add', requirements: ['id' => '\d+'])]
-     public function add($id, ProductsRepository $productsRepository, SessionInterface $session)
+     public function add($id,  ProductsRepository $productsRepository, SessionInterface $session)
      {  
-        
-        //0. Securisation: est ce que le produit existe ?
         $product = $productsRepository->find($id);
 
         if(!$product){
-            throw $this->createNotFoundException("Le produit $id n'existe pas !");
+            throw $this->createNotFoundException("Le produit $id n'existe pas ! ");
         }
+
         
-       //1. retrouver le panier dans la session (sous forme de tableau) 
 
-       //2.  si il n'existe pas encore, prendre le tableau vide
-       $cart = $session->get('cart', []);
-
-       //3. voir si le produit ($id) existe déjà dans le tableau
-       if(array_key_exists($id, $cart)){
+        $cart = $session->get('cart', []);
+        // $id = $products->getID();
+        
+        if(!empty($cart[$id])){
             $cart[$id]++;
-       }
-       else{
-        $cart[$id] = 1;
-       }
+        }
+        else{
+            $cart[$id] = 1;
+        }
 
-       //4. si il n'existe pas, augmenter la qty
+        // on sauvegarde dans la session
+        $session->set('cart', $cart);
+        
 
-       //5. sinon ajouter le produit avec la quantité 1
-
-       //6. enregistrer le tableau mis à jour dans la session
-       $session->set('cart', $cart);
-
-
-       /** @var FlashBag */
-       $flashBag = $session->getBag('flashes');
-
-       $flashBag->add('success', "Le produit a bien été ajouté au panier");
+    // 
+       $this->addFlash('success', "Le produit a bien été ajouté au panier"); 
+    //    $flashBag->add('success', "Le produit a bien été ajouté au panier");
       
 
-         return $this->redirectToRoute('products_app_show',[
-            'category_slug' => $product->getCategories()->getSlug(),
-            'slug' => $product->getSlug(),
-            'id' => $product->getId()
+         return $this->redirectToRoute('cart_show',[
+            'id' => $id,
+            'cart' => $cart,
+           
             
-         ]);
+           ]);
      }
+
+     #[Route('/cart/remove/{id}', name: 'cart_remove', requirements: ['id' => '\d+'])]
+     public function remove($id, SessionInterface $session, ProductsRepository $productsRepository)
+     {  
+        $cart = $session->get('cart', []);
+        // $id = $products->getID();
+        
+        if(!empty($cart[$id])){
+            if($cart[$id]>1){
+            $cart[$id]--;
+            }else{
+                unset($cart[$id]);
+            }
+        }
+      
+
+        // on sauvegarde dans la session
+        $session->set('cart', $cart);
+        
+
+    //    /** @var FlashBag */
+    //    $flashBag = $session->getBag('flashes');
+
+    //    $flashBag->add('success', "Le produit a bien été ajouté au panier");
+      
+
+         return $this->redirectToRoute('cart_show',[
+            'id' => $id,
+            'cart' => $cart
+            
+           ]);
+     }
+
+     #[Route('/cart/delete/{id}', name: 'cart_delete', requirements: ['id' => '\d+'])]
+     public function delete($id, SessionInterface $session, ProductsRepository $productsRepository)
+     {  
+        $cart = $session->get('cart', []);
+        // $id = $products->getID();
+        
+        if(!empty($cart[$id])){
+            unset($cart[$id]);
+        }       
+            
+      // on sauvegarde dans la session
+      $session->set('cart', $cart);
+      
+
+    //    /** @var FlashBag */
+    //    $flashBag = $session->getBag('flashes');
+
+    //    $flashBag->add('success', "Le produit a bien été ajouté au panier");
+      
+
+         return $this->redirectToRoute('cart_show',[
+            'id' => $id,
+            'cart' => $cart
+            
+           ]);
+     }
+
 
     
 }

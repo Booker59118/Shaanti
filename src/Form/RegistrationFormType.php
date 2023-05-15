@@ -23,7 +23,7 @@ class RegistrationFormType extends AbstractType
                 'attr' =>[
                     'class' => 'form-control'
                 ],
-                'label' => 'E-mail'
+                'label' => 'Adresse email'
             ])
 
 
@@ -96,7 +96,7 @@ class RegistrationFormType extends AbstractType
                         
                     ]),
                 ],
-                'label' => 'Mot de passe'
+                'label' => 'Mot de passe...'
                 
             ])
         ;

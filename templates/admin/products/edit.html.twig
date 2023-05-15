@@ -11,10 +11,11 @@
                     {{form_row(productForm.name)}}
                     {{form_row(productForm.description)}}
                     {{form_row(productForm.categories)}}
-                    {{form_row(productForm.price)}}
+                    {{form_row(productForm.price)}} 
                     {{form_row(productForm.stock)}}
                     <button type="submit" class="btn " style="background-color:#9c1bec; color:#f5e6e6">{{button_label|default('Modifier')}}</button>
                     {{form_end(productForm)}}
+                     <a class="btn  btn-secondary mt-3" href="{{path('products_index')}}">Retour</a>
             </div>
         </section>
     </main>   

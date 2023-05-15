@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de {{app.user.firstname}}  {{app.user.lastname}}{% endblock %}
+
+{% block body %}
+
+<main class="container emp-profile">
+    <form method="post">
+        <div class="row">
+                    
+            <div class="col-12 mb-5">
+                
+                <h1 class="profil_user ">
+                    Modification du profil de {{app.user.firstname}}  {{app.user.lastname}}
+                </h1>
+            </div>                       
+                            
+            
+                           
+            
+                    
+        </div>
+    </form>           
+</main>
+{% endblock %}

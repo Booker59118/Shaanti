@@ -9,45 +9,38 @@
         <!-- Left -->
 
         <!-- Right -->
-        <div>
-            <a href="" class="me-4 text-reset">
-                <i class='bx bxl-facebook-square' ></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-google"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
+
+        
         <!-- Right -->
     </section>
     <!-- Section: Social media -->
 
     <!-- Section: Links  -->
-    <section class="" style="background-color:#f5e6e6">
+    <section class="section_footer">
         <div class="container text-center text-md-start mt-5">
             <!-- Grid row -->
             <div class="row mt-3">
                 <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i>Company name
+                        <a href="">Shaanti</a>
                     </h6>
                     <p>
-                        Here you can use rows and columns to organize your footer content. Lorem ipsum
-                        dolor sit amet, consectetur adipisicing elit.
+                        <a href="#" class="text-reset">Catégories</a>
                     </p>
+                    <p>
+                        <a href="#" class="text-reset">Annuaires</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-reset">Qui sommes nous</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-reset"></a>
+                    </p>
+                        
+                        
+                    
                 </div>
                 <!-- Grid column -->
 
@@ -57,11 +50,18 @@
                     <h6 class="text-uppercase fw-bold mb-4">
                         Products
                     </h6>
+                    {% if app.user %}
                     <p>
-                        <a href="#!" class="text-reset">Angular</a>
+                        <a href="{{path('profile_index')}}" class="text-reset">Mon compte</a>
                     </p>
+                    {% else %}
                     <p>
-                        <a href="#!" class="text-reset">React</a>
+                        <a href="{{path('app_login')}}" class="text-reset">Mon compte</a>
+                    </p>
+                    {% endif %}
+
+                    <p>
+                        <a href="{{path('app_condition')}}" class="text-reset">Conditions Générales</a>
                     </p>
                     <p>
                         <a href="#!" class="text-reset">Vue</a>
@@ -76,19 +76,22 @@
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" >
                     <!-- Links -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        Useful links
+                    Social Media
                     </h6>
                     <p>
-                        <a href="#!" class="text-reset">Pricing</a>
+                        <a href="https://www.facebook.com/Boooker59" class="text-reset"><i class='fa fa-facebook-square' ></i></a>
                     </p>
                     <p>
-                        <a href="#!" class="text-reset">Settings</a>
+                        <a href="" class="text-reset"><i class='fab fa-google'></i></a>
                     </p>
                     <p>
-                        <a href="#!" class="text-reset">Orders</a>
+                        <a href="#" class="text-reset"><i class='fab fa-instagram'></i></a>
                     </p>
                     <p>
-                        <a href="#!" class="text-reset">Help</a>
+                        <a href="#" class="text-reset"><i class='fab fa-linkedin'></i></a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-reset"><i class='fab fa-github'></i></a>
                     </p>
                 </div>
                 <!-- Grid column -->
@@ -99,26 +102,27 @@
                     <h6 class="text-uppercase fw-bold mb-4">
                         Contact
                     </h6>
-                    <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                    <p><i class="fas fa-home me-3"></i> Wambrechies, 59118, France</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
                         info@example.com
                     </p>
-                    <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                    <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                    <p><i class="fas fa-phone me-3"></i> + 06 62 84 74 29</p>
+                    
                 </div>
                 <!-- Grid column -->
             </div>
             <!-- Grid row -->
         </div>
+         <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: #9c1bec; color: #fff;">
+        © 2023 Copyright:
+        <a class="text-reset fw-bold" href="#">Shaanti</a>
+    </div>
+    <!-- Copyright -->
     </section>
     <!-- Section: Links  -->
 
-    <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: #9c1bec;">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
+   
 </footer>
 <!-- Footer -->

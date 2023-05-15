@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 #[Route('/products', name: 'products_')]
 class ProductsController extends AbstractController
@@ -51,10 +51,12 @@ class ProductsController extends AbstractController
  * -------------------------------------------------------------------------------------------
  */
     #[Route('/{id}', name: 'app_show')]
-    public function show(Products $products): Response
+    public function show(Products $products, UrlGeneratorInterface $urlGenerator): Response
     {
         return $this->render('products/show.html.twig', [
-            'product' => $products
+            'product' => $products,
+            'urlGenerator'=>$urlGenerator
+            
         ]);
     }
 

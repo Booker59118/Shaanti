@@ -1,74 +1,161 @@
-<nav class="navbar navbar-expand-lg navbar-custom-dark bg-custom-primary mb-7">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
             
-                
-    <div class="container-fluid">
-        <div class="nav-brand"  >
-            <a class="navbar-brand" href="{{path('app_home')}}">
-                <img src="assets/images/logo 2.png" alt="" width="15%" style="">
-                <div class="brand_name d-flex flex-column mb-3">
-                    <p class="brand-title " style="font-size:50px;">Shaanti</p>
-                    <p class="text-brand"> Le bien-être à portée de main</p>
-                </div>
-            </a>   
-        </div>        
-                        
-       
-        <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                
-                <a class="nav-item nav-link " href="{{path('app_home')}}">Accueil</a>
-                <a class="nav-item nav-link" href="{{path('products_index')}}">Produits</a>
-                <a class="nav-item nav-link " href="#">À propos</a>
+    
+        <a class="logo " href="{{path('app_home')}}" >
+            <img src="{{asset('assets/images/logo_3.png')}}" alt="logo">
+            <p class="brand-title">
+                Shaanti
+            </p>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarSupportedContent" 
+            aria-expanded="false" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-menu mr-auto">
+                <li class="nav-item active ">
+                    <a class="nav-link" href="{{path('app_home')}}">
+                        Accueil
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('products_index')}}">
+                        Produits
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        A propos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_contact')}}">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+
+            <div class="search-bar ">
+                <form class="d-flex my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-secondary  my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
-        </div>           
-                            
-    </div>                    
+
+                <ul class="navbar-account d-flex">
+                    <li>
                     
-    <div class="nav-icon ">
-        {% if app.user %}
-            
-            <a class="nav-item nav-link" href="{{path('profile_index')}}">
-                <i class='bx bxs-user bx-md'>
-                    mon compte
-                </i>
-            </a>
-           
-            
-            <a class="nav-item nav-link" href="{{path('app_logout')}}">
-                Déconnexion
-            </a>           
+                        <a href="{{path('cart_show')}}" class="dropdown-item" type="button">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                            Panier 
+                        </a>
+                    </li>
+            {% if app.user %}
+             
+                    <li><a href="{{path('profile_index')}}" class="dropdown-item" type="button"> profil</a></li>
+                    <li><a href="{{path('app_logout')}}" class="dropdown-item" type="button">Logout</a></li>
+                </ul>
+          
+            {% else %}
+            <div>
+                <ul class="navbar-login me-5">
+                    {# <li class="dropdown-item">
+                        <a href="{{path('app_register')}}">Inscription</a>
+                    </li> #}
                         
-        {% else %}         
+                    <li class="dropdown-item">
+                        <a href="{{path('app_login')}}">Login/Register</a>
+                    </li>
+                </ul>
+            </div>
+                
+            {% endif %} 
+
+           
+        </div>
+         
+
+         
+
+         
+
+              
+        
+           
+        
+    
+        
+
+        
+       
+        
+   
+            
+        
+               
+
+             
+              
+        
+    </div> 
+
+    
+        
+    
+</nav>  
+
+<script type="text/javascript">
+    window.addEventListener('scroll', function(){
+        const header = document.querySelector('header');
+        header.classList.toggle("sticky", window.scrollY > 0);
+    });
+</script>
+        
+            
+                
+            
+                
+                    
+            
+            
+                
+            
+        
+       
+                        
+                  
+          
+                      
+                      
+                 
                 
            
             
             
-            <a class="nav-item nav-link" href="{{path('app_login')}}">
-                Connexion 
-            </a>        
+                   
                     
                 
            
 
            
-            <a class="nav-item nav-link" href="{{path('app_register')}}">
-                <i class="">
-                    M'inscrire
-                </i>
-            </a>
             
-        {% endif %} 
+            
+        
 
 
                         
             
-            <a class="nav-item nav-link" href="{{path('cart_show')}}">
-                <i class='bx bxs-basket'>
-                        
-                </i>
-            </a>
             
-    </div>           
+                
+            
+            
+              
 
                 
                     
@@ -86,19 +173,12 @@
                         
     
 
-                    {# <div class="navbar-search">
-                        {# <form class="d-flex">
-
-                            <input class="form-control me-sm-2" type="text" placeholder="Rechercher">
-                            <button class="btn btn-custom-secondary my-2 my-sm-0" type="submit">Search</button>
-
-                        </form> 
-                    </div> #}
+                    
                         
                     
                 
     
-</nav>
+
 
 
                         

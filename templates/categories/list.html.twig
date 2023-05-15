@@ -7,9 +7,13 @@
     <main class="container">
         <section class="row">
             <div class="col-12">
-                <h1>Liste des produits de la catégorie {{category.name}}</h1>
+             <ol class="breadcrumb  ps-3 py-3 text-black" style="background:#f5e6e6;">
+                <li class="breadcrumb-item"><a href="{{path('app_home')}}">Accueil</a></li>
+                <li class="breadcrumb-item active">{{category.name}}</li>
+            </ol>
+                <h1 class="category_list  bg-dark mx-5 my-5 text-white text-center rounded shadow-lg">Liste des produits de la catégorie {{category.name}}</h1>
             </div>
-            {% for product in products %}
+            {% for product in products.data %}
                 <div class="col-3 mb-3">
                     <article class="card h-100">
                         <div class="card-body text-center">
@@ -21,6 +25,12 @@
                     </article>
                 </div>
             {% endfor %}
+
+            {% set path = 'categories_list' %}
+            {% set slug = category.slug %}
+            {% set pages = products.pages %}
+            {% set currentPage = products.page %}
+            {% include "incs/_pagination.html.twig" %}
         </section>
     
     

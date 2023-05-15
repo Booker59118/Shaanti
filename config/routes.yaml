@@ -18,3 +18,4 @@ kernel:
 # delete:
 #     path: /suppression/{id}
 #     controller: App\Controller\Admin\ProductsController::delete   
+

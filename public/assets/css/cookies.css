@@ -1,0 +1,30 @@
+.cookies-banner{
+    border: solid 2px black;
+    background-color:#fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #000;
+    display: flex;
+    justify-content: space-around;
+    padding:  30px;
+    font-family: 'Signika Negative',  sans-serif;
+
+}
+
+.text-banner p{
+    font-size: large;
+}
+
+.button-banner{
+    padding-top: 15px;
+}
+.button-banner a{
+    border: solid 1px #9c1bec;
+    padding: 10px;
+    background: #9c1bec;
+    border-radius: 7px;
+    color: #fff;
+    text-decoration: none;
+}

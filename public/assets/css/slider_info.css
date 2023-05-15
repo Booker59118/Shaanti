@@ -1,0 +1,16 @@
+.slider-container {
+    border: 1px solid #000;
+     top: 0;
+    left: 0;
+    background:blue;
+    height:50px ;
+    position: fixed;
+    width: 100%;
+    
+    
+   
+}
+
+p{
+    float: left;
+}

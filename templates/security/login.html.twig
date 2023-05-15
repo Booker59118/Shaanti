@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
-
+    
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-<section class="container " style="height:37vh; margin-top:5%">
+<style>
+    .labelPassword{position: relative;}
+    .password-icon{display:flex; position:absolute; align-items:center; transform: translate(-15%, -120%); right: 40%;}
+    .password-icon .feather-eye-off{ display: none;}
+    .password-icon:hover{cursor: pointer;}
+</style>
+<section class="container " style="height:37vh; margin:10%">
     <div class="col">
 
         <form method="post">
@@ -17,42 +23,54 @@
                 </div>
             {% endif %}
 
-            <h1 class="h3 mb-3 font-weight-normal">Me connecter</h1>
-            <div class="login_form" style="margin-bottom:5%">
+            <h1 class="h3 mb-5  fw-bold" >Me connecter</h1>
+            <div class="login_form fw-bold mb-7" >
                 <label for="inputEmail">Email</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
             </div>
 
-            <div class="login_form">
-                <label for="inputPassword">Mot de passe</label>
+            <div class="login_form fw-bold" id="loginForm" >
+                <label for="inputPassword" id="labelPassword">Mot de passe</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                <div class="password-icon" >
+                    <i data-feather="eye" ></i>
+                    <i data-feather="eye-off" ></i>
+                </div>
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <div class="connect-button" >
+                <button class="btn btn-lg btn-primary my-3" type="submit">
+                    Connexion
+                </button>
+                <a href="{{path('app_register')}}" class="register text-dark fw-bold" ><p>Pas de compte? S'inscrire <span style="color:#5d69ed;">içi</span></p>.</p></a>
             </div>
             
-
-            <input type="hidden" name="_csrf_token"
-                value="{{ csrf_token('authenticate') }}"
-            >
-
-            {#
-                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                See https://symfony.com/doc/current/security/remember_me.html
-
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" name="_remember_me"> Remember me
-                    </label>
-                </div>
-            #}
-
-            <button class="btn btn-lg btn-primary mt-3" type="submit">
-                Connexion
-            </button>
-            <a href="{{path('app_register')}}" class="btn btn-lg btn-primary">M'inscrire</a>
-        </form>
-    
-    
-    
+        </form>        
+               
     </div>
 </section>
+<script src="https://unpkg.com/feather-icons"></script>
+<script>feather.replace();</script>
+
+{# password visible/hidden #}
+<script>
+    const eye = document.querySelector('.feather-eye');
+    const eyeoff = document.querySelector('.feather-eye-off');
+    const passwordField = document.querySelector('input[type =password]');
+
+    eye.addEventListener('click', () => {
+        eye.style.display = "none";
+        eyeoff.style.display = "block";
+        passwordField.type = "text";
+    });
+
+    eyeoff.addEventListener('click', () => {
+        eyeoff.style.display = "none";
+        eye.style.display = "block";
+        passwordField.type = "password";
+    });
+</script>
+
+
 
 {% endblock %}
