@@ -1,218 +1,61 @@
-
-
 header{
+  width: 100%;
+}
+
+.navbar{
   position:fixed;
  background-color: #f5e6e6;
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom:  solid;
- flex-wrap: nowrap;
- font-family: 'Poppins, sans-serif';
-}
-
-header.sticky{
-  background: #fff;
+  /* margin-left: 5rem; */
+  font-family: 'Poppins, sans-serif';
 } 
 
-
-/* header.sticky .logo img{
-filter: none;
-width: 10%;
-}
-
-header.sticky .logo p{
+.nav-item a{
   color: #9c1bec;
-  font-size:30px ;
-} */
 
-header.sticky .nav-item{
-  color: #9c1bec;
+} 
+
+.d-flex{
+  flex-direction: row;
 }
-
-header.sticky .navbar-login li a{
-  color: #9c1bec;
-}
-
-header.sticky .navbar-account li a{
-  color: #9c1bec;
-}
-
-.logo{
-  display:flex;
- margin-left: 2%;
- margin-right: -15%;
-  align-items: center;
-  
-}
-
-.logo img{
-  width: 10%;
-  margin-top: -15px;
-}
-
-.logo p{
-  color: #9c1bec;
-  font-size: 30px;
-}
-/* ======================================liste des liens==========================================*/
-
-.navbar-menu{
-  width: 100%;
-  margin-left: -180px;
- font-size: small;
+.navbar-account{
   display: flex;
-}  
-.navbar  li{
-  box-shadow: none;
-  margin-left: 3em;
-}  
-
-.nav-item{
-  color: #000;
-  font-size: 20px;
-  font-weight: 700;
-} 
-.navbar-login li a{
-  color: #000;
-  font-size: 20px;
-  font-weight: 700;
-  }
-  .search-bar{
-    margin-right: -5%;
-    width: 60%;
-    font-size: none;
-  }
-  
- .navbar-account li a{
-  color: #000;
-  font-size: 20px;
-  font-weight: 700;
- }
-/********************************************************************************************************/
-@media screen and (max-width: 1620px){
-  .nav-item{
-    font-size: 15px;
-    font-weight: 700;
- 
-} 
-
- .logo{
-  padding-left: 15px;
- }
-.logo img{
-  filter:  brightness(0%);
-  width: 10%;
-  }
-
-  .logo p{
-    font-size:30px ;
-  }
-
-  
-  .search-bar button{
-    padding: -3px;
-  }
-
-  
-  .navbar ul li{
-    box-shadow: none;
-    margin-left: 2em;
-  }
-
-  .dropdown{
-    margin-right: 5%;
-  }
-  .dropdown-item{
-    font-size: 15px;
-    font-weight: 300;
-  }
-
-  .navbar-account{
-    margin-right: 25px ;
-  }
-}   
-    
- 
-
-
-
-
-
-@media screen and (max-width:1024px){
-  .logo{
-    margin-right: -15%;
-  }
+margin-left:  25rem;
 }
- 
-  
+.navbar-login{
+  display:flex;
+}
+
+.navbar-account li{
+  margin-left: 15px;
+}
+
+.navbar-nav {
+  justify-content: center;
+  align-items: center;
+ }
+
+/* ======================================media queries==========================================*/
 
 
-@media  screen and (max-width:991px){
-  .dropdown{
-    transform: translate(130px, 0);
-    position: fixed;
-  }
-
-  .logo img{
-    display:none;
-  }
-  .navbar-login a{
-    margin-left: 45%; 
-  }
-
-  .navbar-toggler{
-    margin-right: 25%;
-    /* transform: translate(250px, -70px);
-   width: 100%; */
-  }
-
-  .navbar-menu{
-    height: 55vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .nav-item{
-    margin-top: 25px;
-    font-size: 20px;
-  }
-
-  .search-bar{
-   margin-left: 25px;
-  }
-
+@media screen and (max-width: 768px){
   .navbar-account{
     flex-direction: column;
-    justify-content: center;
+   
     align-items: center;
   }
-  .navbar-account li{
-    margin-top: 25px;
-  }
- 
-}
-
-@media screen and(max-width:700px) {
-
-  .navbar-toggler{
-    /* transform: translate(150px, -70px); */
-    width: 100%;
-  }
-}
   
-@media screen and(max-width:500px) {
-
-  .navbar-toggler{
-    transform: none;
-  }
-  .logo img{
-    display:block;
-  }
-
-  .logo p{
-    display:none;
+  .navbar-login{
+    display:flex;
+    flex-direction: column;
   }
 }
+
+  
+ 
+
+  
+
 

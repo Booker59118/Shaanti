@@ -23,27 +23,24 @@
         <div class="row col-10 mx-auto  mt-4 justify-content-center">
 
             {% for product in products %}
-                <div class="card bg-light  mb-5 col-md-4 col-sm-5 col-xs-10 text-black fw-bolder" style="max-width: 20rem;">
-                    <div class="card-header d-flex justify-content-center">
-                        {# <img class="img-fluid" src=""> #}
-                    </div>
+                <div class="card bg-light  mb-5 mx-5  col-md-4 col-sm-5 col-xs-10 text-black fw-bolder" style="max-width: 20rem; height: 50%;">
+                    
                     <div class="card-body text-center">
                         <h4 class="card-title">{{product.name}}</h4>
                         <p class="card-text">{{product.description}}</p>
-                    <div class=" ">
-                        <img src="{{ asset('assets/upload/fichier/') ~ product.image }}" class="d-block w-100" alt="{{ product.name }}">
-                    </div>
-                        <small class="text-black">Prix :  {{product.price }} €</small>
-                    </div>
-                    <div class="row justify-content-center">
-                        <a class="btn col-10 m-2 text-info"></a>
-                    </div>
-                    <div class="row justify-content-center">
-                        <a class="btn col-4 m-2 btn-secondary" href="{{path('products_app_show', {'id': product.id})}} )}}">Voir</a>
-                        {# <a href="{{path('cart_add', {'id': product.id})}}" class="btn col-4 m-2 btn-success">Ajouter </a> #}
-                    {% if  is_granted('ROLE_ADMIN') %}  
-                        <a class="btn col-4 m-2 btn-success" href="{{path('admin_productsedit', {'id': product.id})}}">Editer</a>
-                    {% endif %}
+                        <div class=" ">
+                            <img src="{{ asset('assets/upload/fichier/') ~ product.image }}" class="d-block w-100" alt="{{ product.name }}">
+                        </div>
+                        <small class="price text-black">Prix :  {{product.price }} €</small>
+                    
+                
+                        <div class="row justify-content-center">
+                            <a class="btn col-4 m-2 btn-secondary" href="{{path('products_app_show', {'id': product.id})}} )}}">Voir</a>
+                        
+                            {% if  is_granted('ROLE_ADMIN') %}  
+                            <a class="btn col-4 m-2 btn-success" href="{{path('admin_productsedit', {'id': product.id})}}">Editer</a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             {% endfor %}

@@ -3,12 +3,19 @@
 {% block title %}Hello CartController!{% endblock %}
 
 {% block body %}
+<style>
+.table{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+</style>
 <section class="bg-light mx-auto  p-3" style="margin-top:10%;" >
     <h1>Votre panier</h1>
 </section>
 
 
-<table class="table mx-auto my-5 border border-dark" style="margin-top:10%;">
+<table class="table  my-5 border border-dark"  style="margin-left:50px; width: 90%;">
     <thead>
         <tr class="head_table bg-gradient-primary ">
             <th>Produit</th>
@@ -52,6 +59,8 @@
         </tr>  
     </tfoot>     
 </table>
+
+<a href="#" class="btn btn-primary">Valider mon panier</a>
 {% endblock %}
     
      

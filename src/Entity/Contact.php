@@ -18,6 +18,7 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Asser\Length(min:2 , max:50)]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]

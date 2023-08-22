@@ -1,84 +1,78 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-            
     
-        <a class="logo " href="{{path('app_home')}}" >
-            <img src="{{asset('assets/images/logo_3.png')}}" alt="logo">
-            <p class="brand-title">
-                Shaanti
-            </p>
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-            data-bs-target="#navbarSupportedContent" 
-            aria-expanded="false" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
-            <i class="fa fa-bars"></i>
-        </button>
+       
         
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-menu mr-auto">
-                <li class="nav-item active ">
-                    <a class="nav-link" href="{{path('app_home')}}">
-                        Accueil
-                        <span class="sr-only"></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{path('products_index')}}">
-                        Produits
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        A propos
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{path('app_contact')}}">
-                        Contact
-                    </a>
-                </li>
-            </ul>
-
-            <div class="search-bar ">
-                <form class="d-flex my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-secondary  my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-
-                <ul class="navbar-account d-flex">
-                    <li>
-                    
-                        <a href="{{path('cart_show')}}" class="dropdown-item" type="button">
-                            <i class="fa-solid fa-shopping-cart"></i>
-                            Panier 
-                        </a>
-                    </li>
-            {% if app.user %}
-             
-                    <li><a href="{{path('profile_index')}}" class="dropdown-item" type="button"> profil</a></li>
-                    <li><a href="{{path('app_logout')}}" class="dropdown-item" type="button">Logout</a></li>
-                </ul>
-          
-            {% else %}
-            <div>
-                <ul class="navbar-login me-5">
-                    {# <li class="dropdown-item">
-                        <a href="{{path('app_register')}}">Inscription</a>
-                    </li> #}
-                        
-                    <li class="dropdown-item">
-                        <a href="{{path('app_login')}}">Login/Register</a>
-                    </li>
-                </ul>
-            </div>
-                
-            {% endif %} 
+     
 
            
-        </div>
+
+             
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+         <img src="{{asset('assets/images/logo_3.png')}}" alt="logo" width="50" >
+        <a class="navbar-brand" href="#" style="color:#9c1bec;">Shaanti</a>
+        
+
+        
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="{{path('app_home')}}">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{path('products_index')}}">Produits</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="#">A propos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="{{path('app_contact')}}">Contact</a>
+            </li>
+          </ul>
+         
+       
+
+            <ul class="navbar-account  me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a href="{{path('cart_show')}}" class="nav-link" type="button">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        Panier 
+                    </a>
+                </li>    
+                   
+               
+                {% if app.user %}
+                
+                <li class="nav-item"><a href="{{path('profile_index')}}" class="nav-link" type="button"> profil</a></li>
+                <li class="nav-item"><a href="{{path('app_logout')}}" class="nav-link" type="button">Logout</a></li>
+            </ul>
+            
+                {% else %}
+                
+            <ul class="navbar-login me-5">
+                <li class="nav-item me-5">
+                    <a href="{{path('app_register')}}" class="nav-link">Inscription</a>
+                </li> 
+                            
+                <li class="nav-item">
+                    <a href="{{path('app_login')}}" class="nav-link">Login/Register</a>
+                </li>
+            </ul>
+                 {% endif %} 
+                    
+        </div>       
+    </div>
+</nav>
+
+           
+    
          
 
          
